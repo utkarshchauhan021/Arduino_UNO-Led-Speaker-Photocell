@@ -1,2 +1,2 @@
 # arduino-uno-led
-My collection programs to play with Arduino
+My collection of programs to play with Arduino
