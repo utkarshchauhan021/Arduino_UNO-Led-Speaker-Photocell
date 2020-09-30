@@ -1,18 +1,3 @@
-/* Arduino Mario Bros Tunes
-  With Piezo Buzzer and PWM
- 
-  Connect the positive side of the Buzzer to pin 3,
-  then the negative side to a 1k ohm resistor. Connect
-  the other side of the 1 k ohm resistor to
-  ground(GND) pin on the Arduino.
- 
-  by: Dipto Pratyaksa
-  last updated: 31/3/13
-*/
- 
-/*************************************************
- * Public Constants
- *************************************************/
  
 int led1=13;
 int led2=9;
@@ -107,7 +92,6 @@ int led2=9;
 #define NOTE_DS8 4978
  
 #define melodyPin 3
-//Mario main theme melody
 int melody[] = {
   NOTE_E7, NOTE_E7, 0, NOTE_E7,
   0, NOTE_C7, NOTE_E7, 0,
@@ -134,7 +118,7 @@ int melody[] = {
   0, NOTE_E7, 0, NOTE_C7,
   NOTE_D7, NOTE_B6, 0, 0
 };
-//Mario main them tempo
+
 int tempo[] = {
   12, 12, 12, 12,
   12, 12, 12, 12,
@@ -161,7 +145,7 @@ int tempo[] = {
   12, 12, 12, 12,
   12, 12, 12, 12,
 };
-//Underworld melody
+
 int underworld_melody[] = {
   NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4,
   NOTE_AS3, NOTE_AS4, 0,
@@ -183,7 +167,7 @@ int underworld_melody[] = {
   NOTE_AS3, NOTE_A3, NOTE_GS3,
   0, 0, 0
 };
-//Underwolrd tempo
+
 int underworld_tempo[] = {
   12, 12, 12, 12,
   12, 12, 6,
@@ -209,8 +193,8 @@ int underworld_tempo[] = {
 void setup(void)
 {
   pinMode(3, OUTPUT);//buzzer
-  pinMode(led1, OUTPUT);//led indicator when singing a note
-  pinMode(led2, OUTPUT);//led indicator when singing a note
+  pinMode(led1, OUTPUT);//led1
+  pinMode(led2, OUTPUT);//led2
 }
 void loop()
 {
@@ -222,7 +206,7 @@ void loop()
 int song = 0;
  
 void sing(int s) {
-  // iterate over the notes of the melody:
+  
   song = s;
   if (song == 2) {
     Serial.println(" 'Underworld Theme'");
@@ -241,7 +225,7 @@ void sing(int s) {
       int pauseBetweenNotes = noteDuration * 1.30;
       delay(pauseBetweenNotes);
  
-      // stop the tone playing
+      
       buzz(melodyPin, 0, noteDuration,1);
  
     }
@@ -284,10 +268,10 @@ void buzz(int targetPin, long frequency, long length,int X) {
   //// multiply frequency, which is really cycles per second, by the number of seconds to
   //// get the total number of cycles to produce
   for (long i = 0; i < numCycles; i++) { // for the calculated length of time...
-    digitalWrite(targetPin, HIGH); // write the buzzer pin high to push out the diaphram
-    delayMicroseconds(delayValue); // wait for the calculated delay value
-    digitalWrite(targetPin, LOW); // write the buzzer pin low to pull back the diaphram
-    delayMicroseconds(delayValue); // wait again or the calculated delay value
+    digitalWrite(targetPin, HIGH); 
+    delayMicroseconds(delayValue); 
+    digitalWrite(targetPin, LOW); 
+    delayMicroseconds(delayValue); 
   }
   if(X==1){
     digitalWrite(led1, LOW);
