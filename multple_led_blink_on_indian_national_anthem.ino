@@ -1,15 +1,15 @@
-int speakerPin = 3; //buzzer is connected to Pin 3 of the Board.
+int speakerPin = 3;
 int led1=7;
 int led2=12;
-int length = 27; // the number of notes
+int length = 27; 
 
-char notes[] = "cdeeeeeeeeeeedef eeedddbdc "; // a space represents a rest
+char notes[] = "cdeeeeeeeeeeedef eeedddbdc "; 
 
-int beats[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 4 };//Duration of each note
+int beats[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 4 };
 
-int tempo = 275; //Change song speed here
+int tempo = 275; 
 
-void playTone(int tone, int duration) {  //creating a square wave for the given duration
+void playTone(int tone, int duration) {  
 
   for (long i = 0; i < duration * 1000L; i += tone * 2) {
 
@@ -26,13 +26,12 @@ void playTone(int tone, int duration) {  //creating a square wave for the given 
 
 }
 
-void playNote(char note, int duration) { //Assigning high time for the notes
+void playNote(char note, int duration) { 
 
   char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
 
   int tones[] = { 956, 851, 758, 716, 638, 568, 1014, 478 };
 
-  // play the tone corresponding to the note name
 
   for (int i = 0; i < 8; i++) {
 
@@ -43,46 +42,40 @@ void playNote(char note, int duration) { //Assigning high time for the notes
     }
 
   }
-
 }
 
-
-/* The setup() function is called when a sketch starts. It is used to initialize variables, pin modes, start using libraries, etc. This function will only run once, after each power up or reset of the Arduino board. */
 
 
 void setup() 
 
 {
 
-  pinMode(speakerPin, OUTPUT); // Setting pin 3 as an OutPut Pin
+  pinMode(speakerPin, OUTPUT);
   pinMode(led1,OUTPUT);
   pinMode(led2,OUTPUT);
 
 }
 
 
-/* The loop() function executes the program repeatedly until Specified. */
-
 
 void loop() 
 
 {  //Main function
 
-  for (int i = 0; i < length; i++) {  //For the length of the tune array
+  for (int i = 0; i < length; i++) { 
 
-    if (notes[i] == ' ') {  //take space as rest
+    if (notes[i] == ' ') { 
 
-      delay(beats[i] * tempo); // rest
+      delay(beats[i] * tempo); 
 
     } else 
 
     {
 
-      playNote(notes[i], beats[i] * tempo); //play the corresponding note for the corresponding beat
+      playNote(notes[i], beats[i] * tempo); 
 
     }
 
-    // pause between notes
 
     delay(tempo / 2);
 
