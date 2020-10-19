@@ -25,7 +25,6 @@ int counter = 0;
  
 void setup()
 {
-  //Setup pin modes
   pinMode(buzzerPin, OUTPUT);
   pinMode(ledPin1, OUTPUT);
 }
@@ -33,10 +32,8 @@ void setup()
 void loop()
 {
  
-  //Play first section
   firstSection();
  
-  //Play second section
   secondSection();
  
   beep(f, 250);  
@@ -50,7 +47,6 @@ void loop()
  
   delay(500);
  
-  //Repeat second section
   secondSection();
  
 
@@ -68,22 +64,18 @@ void loop()
  
 void beep(int note, int duration)
 {
-  //Play tone on buzzerPin
   tone(buzzerPin, note, duration);
  
-  //Play different LED depending on value of 'counter'
   
   
     digitalWrite(ledPin1, HIGH);
     delay(duration);
     digitalWrite(ledPin1, LOW);
   
-  //Stop tone on buzzerPin
   noTone(buzzerPin);
  
   delay(50);
  
-  //Increment counter
   counter++;
 }
  
