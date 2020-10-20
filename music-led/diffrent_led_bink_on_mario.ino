@@ -192,13 +192,12 @@ int underworld_tempo[] = {
  
 void setup(void)
 {
-  pinMode(3, OUTPUT);//buzzer
-  pinMode(led1, OUTPUT);//led1
-  pinMode(led2, OUTPUT);//led2
+  pinMode(3, OUTPUT);
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
 }
 void loop()
 {
-  //sing the tunes
   sing(1);
   sing(1);
   sing(2);
@@ -213,15 +212,10 @@ void sing(int s) {
     int size = sizeof(underworld_melody) / sizeof(int);
     for (int thisNote = 0; thisNote < size; thisNote++) {
  
-      // to calculate the note duration, take one second
-      // divided by the note type.
-      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
       int noteDuration = 1000 / underworld_tempo[thisNote];
  
       buzz(melodyPin, underworld_melody[thisNote], noteDuration,1);
  
-      // to distinguish the notes, set a minimum time between them.
-      // the note's duration + 30% seems to work well:
       int pauseBetweenNotes = noteDuration * 1.30;
       delay(pauseBetweenNotes);
  
@@ -236,19 +230,13 @@ void sing(int s) {
     int size = sizeof(melody) / sizeof(int);
     for (int thisNote = 0; thisNote < size; thisNote++) {
  
-      // to calculate the note duration, take one second
-      // divided by the note type.
-      //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
       int noteDuration = 1000 / tempo[thisNote];
  
       buzz(melodyPin, melody[thisNote], noteDuration,0);
  
-      // to distinguish the notes, set a minimum time between them.
-      // the note's duration + 30% seems to work well:
       int pauseBetweenNotes = noteDuration * 1.30;
       delay(pauseBetweenNotes);
  
-      // stop the tone playing:
       buzz(melodyPin, 0, noteDuration,0);
  
     }
@@ -261,13 +249,9 @@ void buzz(int targetPin, long frequency, long length,int X) {
   }else{
     digitalWrite(led2, HIGH);
   }
-  long delayValue = 1000000 / frequency / 2; // calculate the delay value between transitions
-  //// 1 second's worth of microseconds, divided by the frequency, then split in half since
-  //// there are two phases to each cycle
-  long numCycles = frequency * length / 1000; // calculate the number of cycles for proper timing
-  //// multiply frequency, which is really cycles per second, by the number of seconds to
-  //// get the total number of cycles to produce
-  for (long i = 0; i < numCycles; i++) { // for the calculated length of time...
+  long delayValue = 1000000 / frequency / 2; 
+  long numCycles = frequency * length / 1000; 
+  for (long i = 0; i < numCycles; i++) { 
     digitalWrite(targetPin, HIGH); 
     delayMicroseconds(delayValue); 
     digitalWrite(targetPin, LOW); 
