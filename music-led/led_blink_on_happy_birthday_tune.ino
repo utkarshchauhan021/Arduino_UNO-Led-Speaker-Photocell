@@ -1,9 +1,9 @@
-int speakerPin = 7; // Buzzer pin
+int speakerPin = 7; 
 int led = 9;
-int length = 28; // the number of notes
+int length = 28;
 char notes[] = "GGAGcB GGAGdc GGxecBA yyecdc";
 int beats[] = {2,2,8,8,8,16,1,2,2,8,8,8,16,1,2,2,8,8,8,8,16,1,2,2,8,8,8,16};
-int tempo = 200;// time delay between notes 
+int tempo = 200;
 
 void playTone(int tone, int duration) {
 for (long i = 0; i < duration * 1000L; i += tone * 2) {
@@ -31,8 +31,6 @@ int tones[] = { 1915, 1700, 1519, 1432, 1275, 1136, 1014,
 
 int SPEE = 5;
 
-// play the tone corresponding to the note name
-
 for (int i = 0; i < 17; i++) {
 
    if (names[i] == note) {
@@ -50,11 +48,10 @@ pinMode(led, OUTPUT);
 void loop() {
 for (int i = 0; i < length; i++) {
    if (notes[i] == ' ') {
-     delay(beats[i] * tempo); // delay between notes
+     delay(beats[i] * tempo); 
    } else {
      playNote(notes[i], beats[i] * tempo);
    }
-   // time delay between notes
    delay(tempo);
 }
 }
