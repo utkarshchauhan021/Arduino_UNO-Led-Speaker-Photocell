@@ -60,7 +60,7 @@ void setup()
 
 void loop() 
 
-{  //Main function
+{
 
   for (int i = 0; i < length; i++) { 
 
