@@ -102,8 +102,7 @@ void setup() {
 
 void loop() {
   for (int thisNote = 0; thisNote < 8; thisNote++) {
-
-    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+    
     int noteDuration = 1000 / noteDurations[thisNote];
     tone(8, melody[thisNote], noteDuration);
 
