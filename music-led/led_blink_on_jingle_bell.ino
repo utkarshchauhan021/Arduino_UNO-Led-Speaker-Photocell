@@ -1,3 +1,4 @@
+//START
 int buzzerPin = 3;
 int led1=9;
 int tempo = 100;
