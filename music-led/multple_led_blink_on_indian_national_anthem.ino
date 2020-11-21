@@ -1,3 +1,4 @@
+//START
 int speakerPin = 3;
 int led1=7;
 int led2=12;
