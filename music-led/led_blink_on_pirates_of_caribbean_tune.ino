@@ -1,3 +1,4 @@
+//START
 const int buzzer1 = 3; 
 const int songspeed = 1.5;
 int buzzer2 = 6;
