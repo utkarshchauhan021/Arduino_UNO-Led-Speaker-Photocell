@@ -1,3 +1,4 @@
+//START
 int buzzer_pin = 8;
 int led2 = 9;
 struct MusicStruct {
