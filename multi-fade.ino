@@ -1,3 +1,4 @@
+//START
 int led1 = 9;
 int led2 = 6;  
 
