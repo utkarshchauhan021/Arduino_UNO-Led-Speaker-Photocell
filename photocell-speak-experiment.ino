@@ -1,4 +1,4 @@
-//START
+//START.
 int sensorPin = A0;
 int led = 7;
 int lightCal;
