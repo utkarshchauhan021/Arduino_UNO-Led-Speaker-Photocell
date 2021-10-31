@@ -101,6 +101,8 @@ void setup() {
   
 }
 
+// MAIN
+
 void loop() {
   for (int thisNote = 0; thisNote < 8; thisNote++) {
     
