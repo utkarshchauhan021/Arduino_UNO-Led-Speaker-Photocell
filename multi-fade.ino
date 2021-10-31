@@ -6,6 +6,9 @@ void setup() {
   pinMode(led1,OUTPUT);
   pinMode(led2,OUTPUT);
 }
+
+// Main
+
 void loop() {
   int brightness = 0;
   while(brightness <= 100) {
